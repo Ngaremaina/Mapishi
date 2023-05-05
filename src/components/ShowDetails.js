@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import ShowItem from "./ShowItem";
 
 const ShowDetails = () => {
     const { label } = useParams()
     console.log(label)
-    const [recipes, setRecipes] = useState("")
-    const {image } = recipes
-
+    const [recipes, setRecipes] = useState([])
+    // const [results, setResults] = useState({})
+   
     useEffect(() => {
         fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${label}&app_id=4b55aada&app_key=%2062b760835f3546d3d7111edd448b68f9`)
         .then(res => res.json())
@@ -15,21 +16,40 @@ const ShowDetails = () => {
             setRecipes(data.hits)})
       },[label])
 
-    console.log(recipes)
-    // recipes.map(recipe => {
-    //     console.log(recipe.recipe)
+    // console.log(recipes)
+    // console.log(recipes.recipe)
+
+    
+    // const showDetails = recipes.filter(recipe => {
+    //     // console.log(recipe.recipe.label)
+    //     if (recipe.recipe.label === label){
+    //         console.log(recipe.recipe)
+    //         setResults(recipe.recipe)
+
+    //         return <ShowItem details={results} />
+    //         // let results = Object.entries(recipe.recipe)
+    //         // console.log(results)
+    //         // console.log(results[])
+    //         // return <p>{recipe.recipe.dishType}</p>
+    //         // return <ShowItem details = {recipe.recipe} />
+    //     }
     // })
     
+    // console.log(results)
     return(
-        <div className="container-fluid text-white">
+        <div className="container-fluid">
 
-            <div className="container">
+           {/* {showDetails} */}
+           <ShowItem details = {recipes} label = {label}/>
+
+            {/* <div className="container">
                 <div className="row">
                     <div className="col-sm-4 ">
-                        <img className="img-fluid" style={{maxHeight:"502px", maxWidth:"450px", float:"left",marginRight:"20px"}} src={image} alt={label}/>                   
-                        {/* <Link className="btn btn-info mt-3 mb-4" to={`/editbook/${id}`}>Edit Book</Link>
-                        <Button className = "btn btn-danger mt-3 mb-4" style={{float: "right"}}onClick={handleDelete}>Delete Book</Button> */}
-                    </div>
+                        <img className="img-fluid" style={{maxHeight:"502px", maxWidth:"450px", float:"left",marginRight:"20px"}} alt={label}/>  
+                        <p>{label}</p>                 
+                    
+                    </div> */}
+                    
                     {/* <div className="col-sm-8 border border-dark rounded mb-5" >
                         <p style={{marginTop:"20px"}}>{title}</p>
                         <p>{subtitle}</p>
@@ -46,8 +66,8 @@ const ShowDetails = () => {
 
                     </div> 
                     */}
-                </div>
-            </div>           
+                {/* </div>
+            </div>            */}
         </div>
     )
 

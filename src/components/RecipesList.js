@@ -12,7 +12,7 @@ const Recipes = ({recipes}) => {
     
 
     return(
-        <div className="card-deck col d-flex p-3 justify-content-center">
+        <div className="card-deck col d-flex justify-content-center">
             {displayRecipes}
         </div>
     )
