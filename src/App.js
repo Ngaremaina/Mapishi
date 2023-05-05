@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import Recipes from './components/RecipesList';
+import { Routes, Route } from 'react-router-dom';
+import ShowDetails from './components/ShowDetails';
 
 function App() {
+  const [recipes, setRecipes] =  useState([])
+  const [searchterm, setSearchterm] = useState("")
+
+  useEffect(() => {
+    fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${searchterm}&app_id=4b55aada&app_key=%2062b760835f3546d3d7111edd448b68f9`)
+    .then(res => res.json())
+    .then(data => setRecipes(data.hits))
+  },[searchterm])
+
+  const getSearch = (search) => {
+    return setSearchterm(search)
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header getSearch = {getSearch}/>
+      <Routes>
+        <Route path="/" element = { <Recipes recipes={recipes}/> }/>
+        <Route path="/:label" element= { <ShowDetails />}/>
+      </Routes>  
     </div>
   );
 }
