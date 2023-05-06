@@ -24,7 +24,7 @@ function App() {
     <div>
       <Header getSearch = {getSearch}/>
       <Routes>
-        <Route path="/" element = { <Recipes recipes={recipes}/> }/>
+        <Route path="/" element = { <Recipes recipes={recipes} /> }/>
         <Route path="/:label" element= { <ShowDetails />}/>
       </Routes>  
     </div>
