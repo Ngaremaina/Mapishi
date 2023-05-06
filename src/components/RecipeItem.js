@@ -59,7 +59,7 @@ function RecipeItem({ label, dishType, image, icon, ingredients, calories, sourc
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-        <Typography variant="h6" color="secondary.dark">Ingredients</Typography>
+        <Typography variant="h6" color="text.secondary">Ingredients</Typography>
           {displayIngredients}
         </CardContent>
       </Collapse>
