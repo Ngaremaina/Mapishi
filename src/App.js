@@ -9,11 +9,16 @@ function App() {
   const [recipes, setRecipes] =  useState([])
   const [searchterm, setSearchterm] = useState("")
 
+
   useEffect(() => {
-    fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${searchterm}&app_id=4b55aada&app_key=%2062b760835f3546d3d7111edd448b68f9`)
-    .then(res => res.json())
-    .then(data => setRecipes(data.hits))
+    fetchData()
   },[searchterm])
+
+  const fetchData = async () => {
+    const response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${searchterm}&app_id=4b55aada&app_key=%2062b760835f3546d3d7111edd448b68f9`)
+    const data = await response.json()
+    return setRecipes(data.hits)
+  }
 
   const getSearch = (search) => {
     return setSearchterm(search)
@@ -22,9 +27,9 @@ function App() {
 
   return (
     <div>
-      <Header getSearch = {getSearch}/>
+      <Header />
       <Routes>
-        <Route path="/" element = { <Recipes recipes={recipes} /> }/>
+        <Route path="/" element = { <Recipes recipes={recipes} getSearch = {getSearch}/> }/>
         <Route path="/:label" element= { <ShowDetails />}/>
       </Routes>  
     </div>

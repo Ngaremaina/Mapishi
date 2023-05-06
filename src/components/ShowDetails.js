@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ShowItem from "./ShowItem";
-// import { Button } from "react-bootstrap";
+
 const ShowDetails = () => {
     const { label } = useParams()
     console.log(label)
@@ -38,37 +38,8 @@ const ShowDetails = () => {
     // console.log(results)
     return(
         <div className="container-fluid">
-
-           {/* {showDetails} */}
            <ShowItem details = {recipes} label = {label}/>
-           {/* <Button className="btn btn-primary"></Button> */}
-
-            {/* <div className="container">
-                <div className="row">
-                    <div className="col-sm-4 ">
-                        <img className="img-fluid" style={{maxHeight:"502px", maxWidth:"450px", float:"left",marginRight:"20px"}} alt={label}/>  
-                        <p>{label}</p>                 
-                    
-                    </div> */}
-                    
-                    {/* <div className="col-sm-8 border border-dark rounded mb-5" >
-                        <p style={{marginTop:"20px"}}>{title}</p>
-                        <p>{subtitle}</p>
-                        <p>by {author}</p>
-                        <p>Kshs. {price}</p>
-                        <p>Available copies: {quantity - sold}</p>
-                        <p>Description</p>
-                        <p>{description}</p>
-                        <p>Publish Date: {published}</p>
-                        <p>Publisher: {publisher}</p>
-                        <p>{pages} pages </p>
-                        
-                        <Button type="button" className="btn btn-primary mt-4" style={{width:"100%", marginBottom:"30px"}}>Add To Cart</Button>
-
-                    </div> 
-                    */}
-                {/* </div>
-            </div>            */}
+           
         </div>
     )
 

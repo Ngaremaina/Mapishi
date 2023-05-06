@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import InfoIcon from '@mui/icons-material/Info';
+import { ListItemText } from '@mui/material';
 
 
 const ExpandMore = styled((props) => {
@@ -34,8 +35,8 @@ function RecipeItem({ label, dishType, image, icon, ingredients, calories, sourc
   };
 
   const displayIngredients = ingredients.map(ingredient => {
-    console.log(ingredient)
-    return <Typography paragraph>{ingredient}</Typography>
+    
+    return <ListItemText>{ingredient}</ListItemText>
   })
 
   return (
@@ -58,7 +59,8 @@ function RecipeItem({ label, dishType, image, icon, ingredients, calories, sourc
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-            {displayIngredients}
+        <Typography variant="h6" color="secondary.dark">Ingredients</Typography>
+          {displayIngredients}
         </CardContent>
       </Collapse>
 

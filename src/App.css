@@ -11,3 +11,14 @@
 .card-header{
   height: 35px;
 }
+
+.img-container{
+  border: 3px solid #000;
+  max-width: max-content;
+  border-radius: 12px;
+  margin: 10px;
+}
+
+.search-form{
+  margin: 10px 40px 10px 40px; 
+}
