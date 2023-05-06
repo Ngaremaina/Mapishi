@@ -21,7 +21,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div>
       <Header getSearch = {getSearch}/>
       <Routes>
         <Route path="/" element = { <Recipes recipes={recipes}/> }/>

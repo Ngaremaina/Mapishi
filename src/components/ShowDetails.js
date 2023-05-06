@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ShowItem from "./ShowItem";
-
+// import { Button } from "react-bootstrap";
 const ShowDetails = () => {
     const { label } = useParams()
     console.log(label)
@@ -16,7 +16,7 @@ const ShowDetails = () => {
             setRecipes(data.hits)})
       },[label])
 
-    // console.log(recipes)
+    console.log(recipes)
     // console.log(recipes.recipe)
 
     
@@ -41,6 +41,7 @@ const ShowDetails = () => {
 
            {/* {showDetails} */}
            <ShowItem details = {recipes} label = {label}/>
+           {/* <Button className="btn btn-primary"></Button> */}
 
             {/* <div className="container">
                 <div className="row">
