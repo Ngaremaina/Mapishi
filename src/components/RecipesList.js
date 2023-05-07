@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import RecipeItem from "./RecipeItem";
 import { Button, Grid } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
-import {FormControl, TextField, InputAdornment} from "@mui/material";
+import {TextField, InputAdornment} from "@mui/material";
 
 
 const Recipes = ({ recipes, getSearch }) => {
