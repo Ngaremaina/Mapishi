@@ -19,14 +19,15 @@ function App() {
 
   const getSearch = (search) => {
     return setSearchterm(search)
+    
   }
 
 
   return (
     <div>
-      <Header />
+      <Header getSearch = {getSearch}/>
       <Routes>
-        <Route path="/" element = { <Recipes recipes={recipes} getSearch = {getSearch}/> }/>
+        <Route path="/" element = { <Recipes recipes={recipes}/> }/>
         <Route path="/:label" element= { <ShowDetails />}/>
       </Routes>  
     </div>
