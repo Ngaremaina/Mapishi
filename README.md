@@ -1,5 +1,5 @@
 # Recipes #
-The purpose of Recipes is to make cooking enjoyable and stress-free. We provide recipes created by culinary professionals for those who cook at home. We understand that cooking is crucial to living a healthier and more enjoyable life for individuals, communities, and the earth, hence our purpose is to make cooking pleasurable. By exchanging recipes and cooking advice, we encourage home cooks throughout the globe to assist one another.
+Making cooking fun and stress-free is the aim of the recipes. For those who cook at home, we provide recipes made by chefs. We recognize that cooking is essential to leading a healthier and more joyful life for individuals, communities, and the natural world; our goal is to make cooking enjoyable. We encourage home cooks worldwide to assist each other by exchanging recipes and culinary tips.
 
 ## Demo Video ##
 ![Watch the video](./media/video.gif)
