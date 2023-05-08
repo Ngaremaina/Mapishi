@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Recipes from './components/RecipesList';
 import { Routes, Route } from 'react-router-dom';
 import ShowDetails from './components/ShowDetails';
+import Footer from './components/Footer';
 
 function App() {
   const [recipes, setRecipes] =  useState([])
@@ -30,6 +31,7 @@ function App() {
         <Route path="/" element = { <Recipes recipes={recipes}/> }/>
         <Route path="/:label" element= { <ShowDetails />}/>
       </Routes>  
+      <Footer />
     </div>
   );
 }
