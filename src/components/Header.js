@@ -6,8 +6,8 @@ import Toolbar from '@mui/material/Toolbar';
 import { NavLink } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-
 import SearchIcon from '@mui/icons-material/Search';
+import HomeIcon from '@mui/icons-material/Home';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -24,14 +24,16 @@ const Search = styled('div')(({ theme }) => ({
   },
 }));
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
+const SearchIconWrapper = styled('button')(({ theme }) => ({
   padding: theme.spacing(0, 2),
   height: '100%',
   position: 'absolute',
-  pointerEvents: 'none',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  border: 'none',
+  color:'white',
+  background:'transparent',  
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -49,6 +51,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       },
     },
   },
+  
 }));
 
 export default function Header({getSearch}) {
@@ -63,13 +66,14 @@ export default function Header({getSearch}) {
         <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" style={{backgroundColor:"black"}}>
             <Toolbar>
-            
+            <HomeIcon />
                 <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }} >
+                    
                     <NavLink className = "nav-link" to="/">Home</NavLink>
                 </Typography>
                 <form onSubmit = {handleSubmit} className="search-form" >
                     <Search>
-                        <SearchIconWrapper><SearchIcon /></SearchIconWrapper>
+                        <SearchIconWrapper type='submit'><SearchIcon /></SearchIconWrapper>
                         <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} value={search} onChange={e => setSearch(e.target.value)}/>
                     </Search>
 
