@@ -5,15 +5,14 @@ import Recipes from './components/RecipesList';
 import { Routes, Route } from 'react-router-dom';
 import ShowDetails from './components/ShowDetails';
 import Footer from './components/Footer';
+import { fetchData } from './components/service';
 
 function App() {
   const [recipes, setRecipes] =  useState([])
   const [searchterm, setSearchterm] = useState("")
-
-
+  
   useEffect(() => {
-    fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${searchterm}&app_id=4b55aada&app_key=%2062b760835f3546d3d7111edd448b68f9`)
-    .then(resp => resp.json())
+    fetchData(searchterm)
     .then(data => setRecipes(data.hits))
   },[searchterm])
 

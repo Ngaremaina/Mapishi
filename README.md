@@ -4,7 +4,7 @@ Making cooking fun and stress-free is the aim of the recipes. For those who cook
 ## Demo Video ##
 ![Watch the video](./media/video.gif)
 
-# To view the published HTML as a website #
+# To view the published website #
 To visit this website, click on the link [here](https://mapishi.netlify.app/)
 
 ## Author ##
