@@ -1,6 +1,4 @@
 import React from "react";
-import Paper from '@mui/material/Paper';
-import BottomNavigation from '@mui/material/BottomNavigation';
 import { Typography } from "@mui/material";
 import {Box} from "@mui/material";
 

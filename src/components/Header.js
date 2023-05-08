@@ -64,7 +64,7 @@ export default function Header({getSearch}) {
     }
     return (
         <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" style={{backgroundColor:"black"}}>
+        <AppBar position="static" sx={{backgroundColor:"black"}}>
             <Toolbar>
             <HomeIcon />
                 <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }} >
