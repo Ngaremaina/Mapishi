@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import HomeIcon from '@mui/icons-material/Home';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -66,10 +66,11 @@ export default function Header({getSearch}) {
         <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" sx={{backgroundColor:"black"}}>
             <Toolbar>
-            <HomeIcon />
+           
                 <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }} >
                     
                     <NavLink className = "nav-link" to="/">Home</NavLink>
+                    <NavLink className="nav-link" to="/about">About</NavLink>
                 </Typography>
                 <form onSubmit = {handleSubmit} className="search-form" >
                     <Search>

@@ -58,6 +58,7 @@
 .nav-link{
   text-decoration: none;
   color: white;
+  margin-left: 20px;
 }
 .nav-link:hover{
   color: blue;

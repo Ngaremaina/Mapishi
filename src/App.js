@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Recipes from './components/RecipesList';
 import { Routes, Route } from 'react-router-dom';
 import ShowDetails from './components/ShowDetails';
-import Footer from './components/Footer';
+import About from './components/About';
 import { fetchData } from './components/service';
 
 function App() {
@@ -29,8 +29,9 @@ function App() {
       <Routes>
         <Route path="/" element = { <Recipes recipes={recipes}/> }/>
         <Route path="/:label" element= { <ShowDetails />}/>
+        <Route path="/about" element={<About />}></Route>
       </Routes>  
-      <Footer />
+      
     </div>
   );
 }
