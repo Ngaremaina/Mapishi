@@ -10,7 +10,6 @@ import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import InfoIcon from '@mui/icons-material/Info';
 import { ListItemText } from '@mui/material';
@@ -43,7 +42,6 @@ function RecipeItem({ label, dishType, image, icon, ingredients, calories, sourc
     <Card className="grid-item">
       
       <CardHeader className="card-header" avatar={ <Avatar alt={label} src={icon} />}
-        action={ <IconButton aria-label="add to favorites"> <FavoriteIcon /> </IconButton> }
         title={label} subheader={ dishType }/>
       <CardMedia component="img" height="194" image={image} alt={label} />
 

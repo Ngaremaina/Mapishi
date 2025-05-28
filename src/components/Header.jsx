@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -7,7 +7,6 @@ import { NavLink } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -66,7 +65,11 @@ export default function Header({getSearch}) {
         <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" sx={{backgroundColor:"black"}}>
             <Toolbar>
-           
+
+                <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }} >
+                      <NavLink className="nav-link cursor-pointer" to="/">Recipe Engine</NavLink>
+                </Typography>
+
                 <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }} >
                     
                     <NavLink className = "nav-link" to="/">Home</NavLink>
@@ -85,49 +88,3 @@ export default function Header({getSearch}) {
         </Box>
     );
 }
-
-
-// import React from "react";
-// import { NavLink } from "react-router-dom";
-// import AppBar from '@mui/material/AppBar';
-// import Box from '@mui/material/Box';
-// import Toolbar from '@mui/material/Toolbar';
-// import Typography from '@mui/material/Typography';
-// import Button from '@mui/material/Button';
-// import IconButton from '@mui/material/IconButton';
-// import MenuIcon from '@mui/icons-material/Menu';
-
-// const Header = () => {
-    
-
-//     return(
-//          <Box sx={{ flexGrow: 1 }}>
-//       <AppBar position="static">
-//         <Toolbar>
-//           <IconButton
-//             size="large"
-//             edge="start"
-//             color="inherit"
-//             aria-label="menu"
-//             sx={{ mr: 2 }}
-//           >
-//             <MenuIcon />
-//           </IconButton>
-//           <NavLink to="/">
-//           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-//             News
-//           </Typography>
-
-//           </NavLink>
-          
-//           {/* <Button color="inherit">Login</Button> */}
-//         </Toolbar>
-//       </AppBar>
-//     </Box>
-
-//     )
-
-    
-// }
-
-// export default Header

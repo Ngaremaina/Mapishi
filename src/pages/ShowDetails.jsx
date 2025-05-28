@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import ShowItem from "./ShowItem";
-import { fetchData } from "./service";
+import ShowItem from "../components/ShowItem";
+import { fetchData } from "../service/service";
 
 const ShowDetails = () => {
     const { label } = useParams()

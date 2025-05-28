@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import { CardContent, Grid } from "@mui/material";
 import {Collapse} from "@mui/material";
 import {Typography} from "@mui/material";
@@ -132,12 +132,4 @@ const ShowItem = ({ details, label }) => {
             </div>    
           )
     }
-        
-
-        
-        
-        
-       
-  
-
 export default ShowItem
