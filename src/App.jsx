@@ -7,6 +7,7 @@ import About from './pages/About';
 import { fetchData } from './service/service';
 import CirclesWithBarSpinner from './components/Loader';
 import './App.css'
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const [recipes, setRecipes] =  useState([])
@@ -41,6 +42,7 @@ function App() {
         <CirclesWithBarSpinner />
       ) : (
         <>
+        <Analytics/>
           <Header getSearch={getSearch} />
           <Routes>
             <Route path="/" element={<Recipes recipes={recipes} />} />
