@@ -67,7 +67,7 @@ export default function Header({getSearch}) {
             <Toolbar>
 
                 <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }} >
-                      <NavLink className="nav-link cursor-pointer" to="/">Recipe Engine</NavLink>
+                      <NavLink className="nav-link cursor-pointer" to="/">Mapishi</NavLink>
                 </Typography>
 
                 <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }} >
