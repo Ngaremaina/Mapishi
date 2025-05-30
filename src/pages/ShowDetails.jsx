@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Container, Grid, Typography, CircularProgress } from "@mui/material";
+import { Grid } from "@mui/material";
 import ShowItem from "../components/ShowItem";
 import { fetchData } from "../service/service";
+import CirclesWithBarSpinner from "../components/Loader";
 
 const ShowDetails = () => {
   const { label } = useParams();
@@ -16,26 +17,18 @@ const ShowDetails = () => {
       .finally(() => setLoading(false));
   }, [label]);
 
+  
   return (
-    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-      {loading ? (
-        <Grid container justifyContent="center" alignItems="center" minHeight="40vh">
-          <CircularProgress />
-        </Grid>
-      ) : recipes.length === 0 ? (
-        <Typography variant="h6" align="center" color="textSecondary">
-          No recipes found for "{label}"
-        </Typography>
-      ) : (
-        <Grid container spacing={3}>
-          {recipes.map((item, index) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-              <ShowItem data={item} />
-            </Grid>
-          ))}
-        </Grid>
-      )}
-    </Container>
+    <>
+    {loading ? (
+      <CirclesWithBarSpinner />
+    ) : (
+      <Grid container className="grid">
+        <ShowItem details = {recipes} label = {label}/>       
+    </Grid>
+    )}
+    
+    </>
   );
 };
 

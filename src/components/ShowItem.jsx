@@ -42,22 +42,22 @@ const ShowItem = ({ details, label }) => {
     let results = {}
    
 
-    details.filter(recipe => {
+    details?.filter(recipe => {
         if (recipe.recipe.label === label){
             results = recipe.recipe
-            results.healthLabels.map(health => {
+            results.healthLabels?.map(health => {
                 healthLabels.push(health)
                 return healthLabels
             })
 
             let dietary = Object.values(results.totalNutrients)
 
-            dietary.map(nutrient => {
+            dietary?.map(nutrient => {
                 nutrients.push(nutrient)
                 return nutrients
             })
 
-            results.ingredients.map(ingredient => {
+            results.ingredients?.map(ingredient => {
                 ingredients.push(ingredient.text)
                 return ingredients
             })
@@ -66,70 +66,111 @@ const ShowItem = ({ details, label }) => {
         return results
     })
 
-    const displayNutrients = nutrients.map(nutrient => {
+    const displayNutrients = nutrients?.map(nutrient => {
         return <ListItem>{nutrient.label}: {nutrient.quantity} {nutrient.unit}</ListItem>
     })
 
-    const displayHealthLabels = healthLabels.map(healthlabel => {
+    const displayHealthLabels = healthLabels?.map(healthlabel => {
         return <ListItem>{healthlabel}</ListItem> 
     })
 
-    const displayIngredients = ingredients.map(ing => {
+    const displayIngredients = ingredients?.map(ing => {
         return <ListItem>{ing}</ListItem>
     })
 
     return (
-            <div className="div-container">
-              <Grid container spacing={0.5} className="container">
-              <Grid className="image-container">
-              <img src={results.image} alt={results.label}  />
+            <Grid container spacing={2} padding={2}>
+              {/* Image Section */}
+              <Grid item xs={12} md={5}>
+                <img
+                  src={results.image}
+                  alt={results.label}
+                  className="responsive-image"
+                  style={{ width: "100%", height: "auto", borderRadius: "8px", maxHeight: "400px" }}
+                />
               </Grid>
-                
-                <Grid className="text-container">
-                    <h2>{results.label}</h2>
-                    <h3>{results.dishType}</h3>  
-                    <p>{results.source}</p>            
-                    <p>{results.cuisineType} cuisine</p>
-                    <h4>{results.calories} Calories</h4>
-                    
-                    <div className="cards">
-                      <Card>
-                        <CardContent>
-                          <Typography variant="h6" color="text.secondary">Ingredients
-                              <ExpandMore expand={expandIngredients} onClick={handleExpandIngredients} aria-expanded={expandIngredients} aria-label="show more" ><ExpandMoreIcon /></ExpandMore>
-                          </Typography>
-                          <Collapse in={expandIngredients} timeout="auto" unmountOnExit>
-                              {displayIngredients}
-                          </Collapse>
-                        </CardContent>
-                      </Card>
 
-                      <Card>
-                        <CardContent>
-                          <Typography variant="h6" color="text.secondary">Nutrients
-                              <ExpandMore expand={expandNutrients} onClick={handleExpandNutrients} aria-expanded={expandNutrients} aria-label="show details" ><ExpandMoreIcon /></ExpandMore>
-                          </Typography>
-                          <Collapse in={expandNutrients} timeout="auto" unmountOnExit>
-                              {displayNutrients}
-                          </Collapse>
-                        </CardContent>                        
-                      </Card>
+              {/* Text Section */}
+              <Grid item xs={12} md={7}>
+                <Typography variant="h4" gutterBottom>{results.label}</Typography>
+                <Typography variant="h6" color="textSecondary">{results.dishType}</Typography>
+                <Typography variant="body1" gutterBottom>{results.source}</Typography>
+                <Typography variant="body2" gutterBottom>
+                  {results.cuisineType} cuisine
+                </Typography>
+                <Typography variant="subtitle1" color="primary">
+                  {results.calories} Calories
+                </Typography>
+              </Grid>
 
-                      <Card>
-                        <CardContent>
-                          <Typography variant="h6" color="text.secondary">Health Labels
-                              <ExpandMore expand={expandHealthLabels} onClick={handleExpandLabels} aria-expanded={expandHealthLabels} aria-label="show more" ><ExpandMoreIcon /></ExpandMore>
-                          </Typography>
-                          <Collapse in={expandHealthLabels} timeout="auto" unmountOnExit>
-                              {displayHealthLabels}
-                          </Collapse>
-                        </CardContent>
-                      </Card>
-                    </div>
+              {/* Cards Section */}
+              <Grid item xs={12}>
+                <Grid container spacing={2}>
+                  {/* Ingredients */}
+                  <Grid item xs={12} md={4}>
+                    <Card>
+                      <CardContent>
+                        <Typography variant="h6" color="text.secondary">
+                          Ingredients
+                          <IconButton
+                            onClick={handleExpandIngredients}
+                            aria-expanded={expandIngredients}
+                            aria-label="show more"
+                          >
+                            <ExpandMoreIcon />
+                          </IconButton>
+                        </Typography>
+                        <Collapse in={expandIngredients} timeout="auto" unmountOnExit>
+                          {displayIngredients}
+                        </Collapse>
+                      </CardContent>
+                    </Card>
+                  </Grid>
 
+                  {/* Nutrients */}
+                  <Grid item xs={12} md={4}>
+                    <Card>
+                      <CardContent>
+                        <Typography variant="h6" color="text.secondary">
+                          Nutrients
+                          <IconButton
+                            onClick={handleExpandNutrients}
+                            aria-expanded={expandNutrients}
+                            aria-label="show more"
+                          >
+                            <ExpandMoreIcon />
+                          </IconButton>
+                        </Typography>
+                        <Collapse in={expandNutrients} timeout="auto" unmountOnExit>
+                          {displayNutrients}
+                        </Collapse>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+
+                  {/* Health Labels */}
+                  <Grid item xs={12} md={4}>
+                    <Card>
+                      <CardContent>
+                        <Typography variant="h6" color="text.secondary">
+                          Health Labels
+                          <IconButton
+                            onClick={handleExpandLabels}
+                            aria-expanded={expandHealthLabels}
+                            aria-label="show more"
+                          >
+                            <ExpandMoreIcon />
+                          </IconButton>
+                        </Typography>
+                        <Collapse in={expandHealthLabels} timeout="auto" unmountOnExit>
+                          {displayHealthLabels}
+                        </Collapse>
+                      </CardContent>
+                    </Card>
+                  </Grid>
                 </Grid>
-            </Grid>
-            </div>    
+              </Grid>
+            </Grid>   
           )
     }
 export default ShowItem

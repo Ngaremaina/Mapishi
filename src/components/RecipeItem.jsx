@@ -33,7 +33,7 @@ function RecipeItem({ label, dishType, image, icon, ingredients, calories, sourc
     setExpanded(!expanded);
   };
 
-  const displayIngredients = ingredients.map(ingredient => {
+  const displayIngredients = ingredients?.map(ingredient => {
     
     return <ListItemText>{ingredient}</ListItemText>
   })
@@ -41,8 +41,20 @@ function RecipeItem({ label, dishType, image, icon, ingredients, calories, sourc
   return (
     <Card className="grid-item">
       
-      <CardHeader className="card-header" avatar={ <Avatar alt={label} src={icon} />}
-        title={label} subheader={ dishType }/>
+      {/* <CardHeader className="card-header" avatar={ <Avatar alt={label} src={icon} />}
+        title={label} subheader={ dishType }/> */}
+        <CardHeader
+            avatar={<Avatar alt={label} src={icon} />}
+            title={label}
+            subheader={dishType}
+            sx={{
+              "& .MuiCardHeader-title": {
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              },
+            }}
+          />
       <CardMedia component="img" height="194" image={image} alt={label} />
 
       <CardContent>
