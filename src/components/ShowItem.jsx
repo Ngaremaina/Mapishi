@@ -92,10 +92,10 @@ const ShowItem = ({ details, label }) => {
 
               {/* Text Section */}
               <Grid item xs={12} md={7}>
-                <Typography variant="h4" gutterBottom>{results.label}</Typography>
-                <Typography variant="h6" color="textSecondary">{results.dishType}</Typography>
-                <Typography variant="body1" gutterBottom>{results.source}</Typography>
-                <Typography variant="body2" gutterBottom>
+                <Typography variant="h4" gutterBottom style={{ color: 'white' }}>{results.label}</Typography>
+                <Typography variant="h6" style={{ color: 'white' }}>{results.dishType}</Typography>
+                <Typography variant="body1" gutterBottom style={{ color: 'white' }}>{results.source}</Typography>
+                <Typography variant="body2" gutterBottom style={{ color: 'white' }}>
                   {results.cuisineType} cuisine
                 </Typography>
                 <Typography variant="subtitle1" color="primary">
