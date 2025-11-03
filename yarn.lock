@@ -1657,10 +1657,10 @@ react-is@^19.0.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-19.1.0.tgz#805bce321546b7e14c084989c77022351bbdd11b"
   integrity sha512-Oe56aUPnkHyyDxxkvqtd7KkdQP5uIUfHxd5XTb3wE9d/kRnZLmKbDB0GWk919tdQ+mxxPtG6EAs6RMT6i1qtHg==
 
-react-loader-spinner@^7.0.3:
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/react-loader-spinner/-/react-loader-spinner-7.0.3.tgz#283fa667aef20b40d85ba8030c4894d662c4de0e"
-  integrity sha512-N29VGq7pPHH1/TqDNKc04ij0uFtJpyM2i6M5vXOcbOfrfl7KENguD4SYkrWBNfwpILHfAPqrRGSPrqoQvLOJsQ==
+react-loader-spinner@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/react-loader-spinner/-/react-loader-spinner-8.0.0.tgz#c6c8f8f0694da57eed66c7a05b705b14ecc09fa9"
+  integrity sha512-Us+bM4Jb3ae5dcLF0owFAML2kRzBbqnAODjV+dNIG1TbErr4mj/nhAqDjLWsu4PH3txei5S5tQklI0dpcyTO0A==
   dependencies:
     styled-components "^6.1.19"
     tinycolor2 "^1.6.0"
