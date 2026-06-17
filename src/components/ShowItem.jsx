@@ -1,31 +1,10 @@
 import { useState } from "react";
 import { ExpandMoreIcon } from "./icons";
+import { SkeletonBox } from "./SkeletonBox";
+import { ExpandableCard } from "./ExpandableCard";
 
-const ExpandableCard = ({ title, expanded, onToggle, children }) => (
-  <div className="rounded-lg bg-white shadow-md">
-    <div className="p-4">
-      <div className="flex items-center justify-between">
-        <h3 className="font-medium text-gray-600">{title}</h3>
-        <button
-          type="button"
-          onClick={onToggle}
-          aria-expanded={expanded}
-          aria-label="show more"
-          className="rounded-full p-2 text-gray-600 hover:bg-gray-100"
-        >
-          <ExpandMoreIcon
-            width={20}
-            height={20}
-            className={`transition-transform duration-200 ${expanded ? "rotate-180" : "rotate-0"}`}
-          />
-        </button>
-      </div>
-      {expanded && <div className="mt-2">{children}</div>}
-    </div>
-  </div>
-);
 
-const ShowItem = ({ details, label }) => {
+export const ShowItem = ({ details, label, loading }) => {
   const [expandIngredients, setExpandIngredients] = useState(false);
   const [expandHealthLabels, setExpandHealthLabels] = useState(false);
   const [expandNutrients, setExpandNutrients] = useState(false);
@@ -39,29 +18,60 @@ const ShowItem = ({ details, label }) => {
   let healthLabels = [];
   let results = {};
 
-  details?.filter((recipe) => {
-    if (recipe.recipe.label === label) {
-      results = recipe.recipe;
-      results.healthLabels?.map((health) => {
-        healthLabels.push(health);
-        return healthLabels;
-      });
+  if (!loading) {
+    details?.filter((recipe) => {
+      if (recipe.recipe.label === label) {
+        results = recipe.recipe;
 
-      let dietary = Object.values(results.totalNutrients);
+        results.healthLabels?.forEach((health) => {
+          healthLabels.push(health);
+        });
 
-      dietary?.map((nutrient) => {
-        nutrients.push(nutrient);
-        return nutrients;
-      });
+        Object.values(results.totalNutrients || {}).forEach((nutrient) => {
+          nutrients.push(nutrient);
+        });
 
-      results.ingredients?.map((ingredient) => {
-        ingredients.push(ingredient.text);
-        return ingredients;
-      });
-    }
-    return results;
-  });
+        results.ingredients?.forEach((ingredient) => {
+          ingredients.push(ingredient.text);
+        });
+      }
+    });
+  }
 
+  // ---------------- SKELETON UI ----------------
+  if (loading) {
+    return (
+      <div className="grid grid-cols-1 gap-4 py-6 md:grid-cols-12">
+        {/* Image skeleton */}
+        <div className="md:col-span-5">
+          <SkeletonBox className="h-[400px] w-full rounded-xl" />
+        </div>
+
+        {/* Text skeleton */}
+        <div className="md:col-span-7 space-y-3 rounded-xl bg-surface p-6">
+          <SkeletonBox className="h-8 w-3/4" />
+          <SkeletonBox className="h-6 w-1/2" />
+          <SkeletonBox className="h-4 w-2/3" />
+          <SkeletonBox className="h-4 w-1/3" />
+          <SkeletonBox className="h-6 w-1/4 mt-4" />
+        </div>
+
+        {/* Cards skeleton */}
+        <div className="md:col-span-12 grid grid-cols-1 gap-4 md:grid-cols-3">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="rounded-lg bg-white p-4 shadow-md">
+              <SkeletonBox className="h-5 w-1/2 mb-3" />
+              <SkeletonBox className="h-4 w-full mb-2" />
+              <SkeletonBox className="h-4 w-5/6 mb-2" />
+              <SkeletonBox className="h-4 w-2/3" />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  // ---------------- NORMAL UI ----------------
   const displayNutrients = nutrients?.map((nutrient) => (
     <p key={nutrient.label} className="py-0.5 text-sm text-gray-700">
       {nutrient.label}: {nutrient.quantity} {nutrient.unit}
@@ -89,29 +99,29 @@ const ShowItem = ({ details, label }) => {
 
   return (
     <div className="grid grid-cols-1 gap-4 py-6 md:grid-cols-12">
-      {/* Image Section */}
+      {/* Image */}
       <div className="md:col-span-5">
         <img
           src={results.image}
           alt={results.label}
-          className="max-h-[400px] w-full rounded-xl object-cover shadow-lg ring-1 ring-white/10"
+          className="max-h-[400px] w-full rounded-xl object-cover shadow-lg"
         />
       </div>
 
-      {/* Text Section */}
-      <div className="flex flex-col justify-center rounded-xl bg-surface p-6 text-white ring-1 ring-white/10 md:col-span-7">
-        <h1 className="mb-1 text-3xl font-bold tracking-tight">{results.label}</h1>
-        <h2 className="text-xl capitalize text-gray-300">{results.dishType}</h2>
+      {/* Text */}
+      <div className="flex flex-col justify-center rounded-xl bg-surface p-6 text-white md:col-span-7">
+        <h1 className="mb-1 text-3xl font-bold">{results.label}</h1>
+        <h2 className="text-xl text-gray-300">{results.dishType}</h2>
         <p className="mt-3 text-gray-300">
           <span className="text-gray-500">Source:</span> {results.source}
         </p>
-        <p className="text-sm capitalize text-gray-400">{results.cuisineType} cuisine</p>
-        <span className="mt-4 inline-flex w-fit items-center rounded-full bg-brand-500/15 px-3 py-1 text-sm font-semibold text-brand-400">
+        <p className="text-sm text-gray-400">{results.cuisineType}</p>
+        <span className="mt-4 inline-flex w-fit rounded-full bg-brand-500/15 px-3 py-1 text-sm font-semibold text-brand-400">
           {Math.round(results.calories)} Calories
         </span>
       </div>
 
-      {/* Cards Section */}
+      {/* Cards */}
       <div className="md:col-span-12">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <ExpandableCard
@@ -142,5 +152,3 @@ const ShowItem = ({ details, label }) => {
     </div>
   );
 };
-
-export default ShowItem;
