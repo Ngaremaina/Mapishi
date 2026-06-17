@@ -35,7 +35,7 @@ const About = () => {
       </p>
 
       <p className="mt-4 border-t border-white/10 pt-4 text-sm text-gray-400">
-        Copyright © 2025 Mapishi. All rights reserved.
+        Copyright &copy; {new Date().getFullYear()} Mapishi. All rights reserved.
       </p>
     </section>
   );
