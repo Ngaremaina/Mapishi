@@ -1,6 +1,7 @@
 import { GitHubIcon, LinkedInIcon, MailIcon, HomeIcon, InfoIcon } from "./icons";
 
 const Footer = () => {
+  const year = new Date().getFullYear();
   return (
     <footer className="mt-8 w-full border-t border-white/10 py-8 text-white">
       <div className="mx-auto max-w-5xl px-4">
@@ -55,7 +56,7 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-sm">&copy; {new Date().getFullYear()} Mapishi. All rights reserved.</p>
+          <p className="text-sm">&copy; {year} Mapishi. All rights reserved.</p>
           <div className="flex items-center">
             <a
               href="https://github.com/Ngaremaina"

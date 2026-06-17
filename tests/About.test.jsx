@@ -8,5 +8,5 @@ test('renders the About page intro and copyright', () => {
 
   expect(screen.getByRole('heading', { name: /Welcome to Mapishi/i })).toBeInTheDocument()
   expect(screen.getAllByText(/Edamam API/i).length).toBeGreaterThan(0)
-  expect(screen.getByText(/Copyright © 2025 Mapishi/i)).toBeInTheDocument()
+  expect(screen.getByText(/© \d{4} Mapishi\. All rights reserved\./i)).toBeInTheDocument()
 })

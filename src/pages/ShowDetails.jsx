@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ShowItem } from "../components/ShowItem";
+import ShowItem from "../components/ShowItem";
 import { fetchData } from "../service/service";
 import CirclesWithBarSpinner from "../components/Loader";
 import { AlertIcon } from "../components/icons";

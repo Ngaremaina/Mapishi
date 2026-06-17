@@ -17,5 +17,5 @@ test('renders footer headings, links and copyright', () => {
   )
 
   expect(screen.getByRole('link', { name: /^About Us$/i })).toHaveAttribute('href', '/about')
-  expect(screen.getByText(/© 2025 Mapishi\. All rights reserved\./i)).toBeInTheDocument()
+  expect(screen.getByText(/© \d{4} Mapishi\. All rights reserved\./i)).toBeInTheDocument()
 })
