@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
-import ShowDetails from "../pages/ShowDetails";
+import ShowDetails from "../src/pages/ShowDetails";
 import * as service from "../service/service";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 
