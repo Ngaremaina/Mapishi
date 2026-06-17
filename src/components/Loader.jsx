@@ -10,7 +10,7 @@ export default function CirclesWithBarSpinner(){
             innerCircleColor="#4fa94d"
             barColor="#4fa94d"
             ariaLabel="circles-with-bar-loading"
-            wrapperClass="centered-container"
+            wrapperClass="flex justify-center items-center h-screen"
             visible={true}
             />
     )

@@ -1,0 +1,12 @@
+import '@testing-library/jest-dom'
+import { render, screen } from '@testing-library/react'
+import { expect, test } from 'vitest'
+import About from './About'
+
+test('renders the About page intro and copyright', () => {
+  render(<About />)
+
+  expect(screen.getByRole('heading', { name: /Welcome to Mapishi/i })).toBeInTheDocument()
+  expect(screen.getAllByText(/Edamam API/i).length).toBeGreaterThan(0)
+  expect(screen.getByText(/Copyright © 2025 Mapishi/i)).toBeInTheDocument()
+})
