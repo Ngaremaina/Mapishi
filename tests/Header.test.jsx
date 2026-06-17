@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { expect, test, vi } from 'vitest'
-import Header from './Header'
+import Header from '../src/components/Header'
 
 const renderHeader = (getSearch = vi.fn()) => {
   render(

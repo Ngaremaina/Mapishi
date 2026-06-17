@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { expect, test } from 'vitest'
-import Recipes from './RecipesList'
+import Recipes from '../src/pages/RecipesList'
 
 const makeRecipe = (label) => ({
   recipe: {

@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { expect, test } from 'vitest'
-import ShowItem from './ShowItem'
+import ShowItem from '../src/components/ShowItem'
 
 const details = [
   {

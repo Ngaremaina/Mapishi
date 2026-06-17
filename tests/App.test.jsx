@@ -7,8 +7,8 @@ vi.mock('react-loader-spinner', () => ({
   CirclesWithBar: () => null
 }))
 
-import App from './App'
-import * as service from './service/service'
+import App from '../src/App'
+import * as service from '../src/service/service'
 
 beforeAll(() => {
   vi.spyOn(service, 'fetchData').mockResolvedValue({ hits: [] })

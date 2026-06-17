@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import { expect, test } from 'vitest'
-import About from './About'
+import About from '../src/pages/About'
 
 test('renders the About page intro and copyright', () => {
   render(<About />)

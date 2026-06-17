@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import { expect, test } from 'vitest'
-import Footer from './Footer'
+import Footer from '../src/components/Footer'
 
 test('renders footer headings, links and copyright', () => {
   render(<Footer />)
