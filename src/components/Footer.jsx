@@ -55,7 +55,7 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-sm">© 2025 Mapishi. All rights reserved.</p>
+          <p className="text-sm">&copy; {new Date().getFullYear()} Mapishi. All rights reserved.</p>
           <div className="flex items-center">
             <a
               href="https://github.com/Ngaremaina"
@@ -72,7 +72,7 @@ const Footer = () => {
               <LinkedInIcon />
             </a>
             <a
-              href="mailto:ngaremaina4@gmail.com"
+              href="mailto:mainaowen1997@gmail.com"
               aria-label="Email"
               className="rounded-full p-2 text-gray-300 transition hover:bg-white/10 hover:text-brand-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
             >
