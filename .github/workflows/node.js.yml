@@ -17,25 +17,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      fail-fast: false
-      matrix:
-        node-version: [24.x, 26.x]
-        # https://nodejs.org/en/about/previous-releases
-
     steps:
-      - uses: actions/checkout@v4   # consider bumping to the latest major
-
-      # Yarn 2+ only: Corepack isn't bundled with Node 25+, so install it first.
-      # Must run BEFORE setup-node so the yarn cache step can find the right Yarn.
-      # Delete these two lines if you're on Yarn 1.
+      - uses: actions/checkout@v4 
       - run: npm install -g corepack
       - run: corepack enable
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4  # consider bumping to the latest major
+      - name: Use Node.js latest
+        uses: actions/setup-node@v4 
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: latest
+          check-latest: true
           cache: 'yarn'
 
       - name: Install dependencies
