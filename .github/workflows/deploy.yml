@@ -17,6 +17,11 @@ jobs:
     name: Build & Test (Node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [24.x, 26.x]
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -25,7 +30,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          check-latest: true
           cache: yarn
 
       - name: Install dependencies
@@ -53,8 +57,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: latest
-          check-latest: true
+          node-version: 24.x
 
       - name: Install Vercel CLI
         run: npm install --global vercel
